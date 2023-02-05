@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow_back"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/settings"
+            android:textColor="@color/text_and_icon_color"
+            android:textSize="@dimen/base_text_size" />
+
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/dark_theme"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/text_and_icon_color"
+        android:textSize="@dimen/settings_text_size"
+        android:paddingEnd="5dp"
+        app:icon="@drawable/switch1"
+        app:iconGravity="end"
+        app:iconTint="@color/gray" />
+
+    <com.google.android.material.button.MaterialButton
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/share"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/text_and_icon_color"
+        android:paddingStart="@dimen/settings_padding_start"
+        android:paddingEnd="16dp"
+        android:textSize="@dimen/settings_text_size"
+        app:icon="@drawable/share"
+        app:iconGravity="end"
+        app:iconTint="@color/gray" />
+
+    <com.google.android.material.button.MaterialButton
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/support"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/text_and_icon_color"
+        android:textSize="@dimen/settings_text_size"
+        android:paddingStart="@dimen/settings_padding_start"
+        android:paddingEnd="14dp"
+        app:icon="@drawable/support"
+        app:iconGravity="end"
+        app:iconTint="@color/gray" />
+
+    <com.google.android.material.button.MaterialButton
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="61dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/agreement"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textColor="@color/text_and_icon_color"
+        android:textSize="@dimen/settings_text_size"
+        android:paddingStart="@dimen/settings_padding_start"
+        android:paddingEnd="20dp"
+        app:icon="@drawable/arrow_forward"
+        app:iconGravity="end"
+        app:iconTint="@color/gray" />
+
+</LinearLayout>
