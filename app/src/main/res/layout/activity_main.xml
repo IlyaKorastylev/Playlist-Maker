@@ -13,9 +13,10 @@
         android:text="@string/app_name"
         android:textColor="@color/white"
         android:textSize="@dimen/base_text_size"
-        android:layout_marginTop="15dp"/>
+        android:layout_marginTop="15dp" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/search_button"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -35,6 +36,7 @@
         app:iconTint="@color/text_and_icon_color"/>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/library_button"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -55,6 +57,7 @@
     </com.google.android.material.button.MaterialButton>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/settings_button"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
