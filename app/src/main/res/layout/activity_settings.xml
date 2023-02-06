@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -13,6 +14,7 @@
 
 
         <ImageView
+            android:id="@+id/search_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/arrow_back"
@@ -30,7 +32,7 @@
 
     </LinearLayout>
 
-    <com.google.android.material.button.MaterialButton
+    <Switch
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="match_parent"
         android:layout_height="61dp"
@@ -44,7 +46,8 @@
         android:paddingEnd="5dp"
         app:icon="@drawable/switch1"
         app:iconGravity="end"
-        app:iconTint="@color/gray" />
+        app:iconTint="@color/gray"
+        tools:ignore="RtlSymmetry,UseSwitchCompatOrMaterialXml" />
 
     <com.google.android.material.button.MaterialButton
         style="?android:attr/borderlessButtonStyle"
