@@ -18,14 +18,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/arrow_back"
-            android:layout_marginTop="20dp"
-            android:layout_marginStart="20dp" />
+            android:layout_marginTop="@dimen/corner_margin"
+            android:layout_marginStart="@dimen/corner_margin" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="28dp"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="@dimen/margin_title_top"
             android:text="@string/settings"
             android:textColor="@color/text_and_icon_color"
             android:textSize="@dimen/base_text_size" />
@@ -35,7 +35,7 @@
     <Switch
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="match_parent"
-        android:layout_height="61dp"
+        android:layout_height="@dimen/settings_button_height"
         android:layout_marginTop="40dp"
         android:backgroundTint="@color/white"
         android:text="@string/dark_theme"
@@ -52,7 +52,7 @@
     <com.google.android.material.button.MaterialButton
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="match_parent"
-        android:layout_height="61dp"
+        android:layout_height="@dimen/settings_button_height"
         android:backgroundTint="@color/white"
         android:text="@string/share"
         android:textAlignment="textStart"
@@ -68,7 +68,7 @@
     <com.google.android.material.button.MaterialButton
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="match_parent"
-        android:layout_height="61dp"
+        android:layout_height="@dimen/settings_button_height"
         android:backgroundTint="@color/white"
         android:text="@string/support"
         android:textAlignment="textStart"
@@ -84,7 +84,7 @@
     <com.google.android.material.button.MaterialButton
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="match_parent"
-        android:layout_height="61dp"
+        android:layout_height="@dimen/settings_button_height"
         android:backgroundTint="@color/white"
         android:text="@string/agreement"
         android:textAlignment="textStart"

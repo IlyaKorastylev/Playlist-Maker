@@ -7,4 +7,8 @@
     <dimen name="base_text_size">22sp</dimen>
     <dimen name="settings_text_size">16sp</dimen>
     <dimen name="settings_padding_start">16dp</dimen>
+    <dimen name="main_margin_top_button">16dp</dimen>
+    <dimen name="margin_title_top">14dp</dimen>
+    <dimen name="corner_margin">20dp</dimen>
+    <dimen name="settings_button_height">61dp</dimen>
 </resources>

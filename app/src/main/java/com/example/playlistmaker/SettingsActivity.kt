@@ -15,6 +15,7 @@ class SettingsActivity : AppCompatActivity() {
         searchBackButton.setOnClickListener {
             val searchBackIntent = Intent(this, MainActivity::class.java)
             startActivity(searchBackIntent)
+            finish()
         }
     }
 }
