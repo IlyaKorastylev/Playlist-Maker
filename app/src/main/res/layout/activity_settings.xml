@@ -14,13 +14,13 @@
 
 
         <ImageView
-            android:id="@+id/search_back"
+            android:id="@+id/settings_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/arrow_back"
             android:layout_marginTop="@dimen/corner_margin"
             android:layout_marginStart="@dimen/corner_margin"
-            app:tint="?attr/tint" />
+            app:tint="@color/tint" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -39,7 +39,9 @@
         android:layout_marginTop="40dp"
         android:text="@string/dark_theme"
         android:paddingEnd="5dp"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
+        tools:ignore="UseSwitchCompatOrMaterialXml"
+        android:thumbTint="@color/switcher"
+        android:trackTint="@color/switcher"/>
 
     <Button
         style="@style/SettingsButtons"

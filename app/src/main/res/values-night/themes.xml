@@ -13,6 +13,5 @@
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
         <item name="background">@color/maket_black</item>
-        <item name="tint">@color/white</item>
     </style>
 </resources>
