@@ -15,17 +15,15 @@ class SettingsActivity : AppCompatActivity() {
         val settingsBackButton = findViewById<View>(R.id.settings_back)
 
         settingsBackButton.setOnClickListener {
-            val settingsBackIntent = Intent(this, MainActivity::class.java)
-            startActivity(settingsBackIntent)
             finish()
         }
 
         val shareButton = findViewById<Button>(R.id.share_button)
 
         shareButton.setOnClickListener {
-            val message = "https://practicum.yandex.ru/android-developer/"
+            val message = getString(R.string.share_message)
             val shareIntent = Intent(Intent.ACTION_SEND)
-            shareIntent.data = Uri.parse("text/plain")
+            shareIntent.type = "text/plain"
             shareIntent.putExtra(Intent.EXTRA_TEXT, message)
             val chooserIntent = Intent.createChooser(shareIntent,null)
             startActivity(chooserIntent)
@@ -34,8 +32,8 @@ class SettingsActivity : AppCompatActivity() {
         val supportButton = findViewById<Button>(R.id.support_button)
 
         supportButton.setOnClickListener {
-            val subject = "Сообщение разработчикам и разработчицам приложения Playlist Maker"
-            val message = "Спасибо разработчикам и разработчицам за крутое приложение!"
+            val subject = getString(R.string.support_subject)
+            val message = getString(R.string.support_message)
             val supportIntent = Intent(Intent.ACTION_SENDTO)
             supportIntent.data = Uri.parse("mailto:")
             supportIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("i.korastylev@yandex.ru"))

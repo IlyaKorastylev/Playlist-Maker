@@ -39,8 +39,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@drawable/rounded_edittext"
-        android:layout_marginStart="@dimen/search_margin_start_end"
-        android:layout_marginEnd="@dimen/search_margin_start_end"
+        android:layout_marginHorizontal="@dimen/search_margin_horizontal"
         android:layout_marginTop="24dp">
 
         <ImageView
@@ -49,7 +48,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/search14"
             android:layout_gravity="center_vertical"
-            android:layout_marginStart="13dp"
+            android:layout_marginStart="16dp"
             app:tint="@color/hint_text"/>
 
         <EditText

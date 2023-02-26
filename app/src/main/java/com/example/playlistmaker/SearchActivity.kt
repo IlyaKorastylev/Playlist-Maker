@@ -10,11 +10,15 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.ImageView
-import com.example.playlistmaker.MyApplication.Companion.SEARCH_LINE
 
 class SearchActivity : AppCompatActivity() {
 
-    var savedSearchText : String? =null
+    companion object {
+        const val SEARCH_LINE = "SEARCH_LINE"
+    }
+
+    var savedSearchText : String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
@@ -24,8 +28,6 @@ class SearchActivity : AppCompatActivity() {
         val clearButton = findViewById<ImageView>(R.id.clear_button)
 
         searchBackButton.setOnClickListener {
-            val searchBackIntent = Intent(this, MainActivity::class.java)
-            startActivity(searchBackIntent)
             finish()
         }
 
@@ -62,7 +64,7 @@ class SearchActivity : AppCompatActivity() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
-        outState.putString(MyApplication.SEARCH_LINE, savedSearchText)
+        outState.putString(SEARCH_LINE, savedSearchText)
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {

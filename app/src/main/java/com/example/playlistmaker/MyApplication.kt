@@ -17,8 +17,4 @@ class MyApplication : Application() {
         super.onLowMemory()
     }
 
-    companion object {
-        const val SEARCH_LINE = "SEARCH_LINE"
-    }
-
 }
