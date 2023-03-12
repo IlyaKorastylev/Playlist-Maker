@@ -12,4 +12,5 @@
     <dimen name="settings_button_height">61dp</dimen>
     <dimen name="search_margin_horizontal">16dp</dimen>
     <dimen name="rounded_edittext_radius">8dp</dimen>
+    <dimen name="artwork_dimens">45dp</dimen>
 </resources>
