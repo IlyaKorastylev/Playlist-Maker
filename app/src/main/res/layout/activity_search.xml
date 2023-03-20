@@ -55,17 +55,18 @@
             android:id="@+id/search_edit_text"
             android:layout_width="match_parent"
             android:layout_height="36dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginEnd="36dp"
+            android:background="@color/search_background"
+            android:fontFamily="@font/ys_display_regular"
             android:hint="@string/search_hint"
+            android:inputType="text"
             android:maxLength="40"
             android:maxLines="1"
-            android:inputType="text"
-            android:background="@color/search_background"
             android:textColor="@color/black"
             android:textColorHint="@color/hint_text"
             android:textSize="@dimen/settings_text_size"
-            android:fontFamily="@font/ys_display_regular"
-            android:layout_marginStart="36dp"
-            android:layout_marginEnd="36dp" />
+            tools:ignore="TouchTargetSizeCheck" />
 
         <ImageView
             android:id="@+id/clear_button"
@@ -78,5 +79,15 @@
             app:tint="@color/hint_text" />
 
     </FrameLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/searchRV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:orientation="horizontal"
+        tools:listitem="@layout/item_track"
+        tools:itemCount="7"/>
 
 </LinearLayout>
