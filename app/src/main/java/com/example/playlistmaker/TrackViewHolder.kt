@@ -7,6 +7,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import java.text.SimpleDateFormat
+import java.util.*
 
 class TrackViewHolder(parentView: ViewGroup) : RecyclerView.ViewHolder(
     LayoutInflater.from(parentView.context)
@@ -21,7 +23,7 @@ class TrackViewHolder(parentView: ViewGroup) : RecyclerView.ViewHolder(
     fun bind(element: Track) {
         trackName.text = element.trackName
         artistName.text = element.artistName
-        trackTime.text = element.trackTime
+        trackTime.text = SimpleDateFormat("mm:ss", Locale.getDefault()).format(element.trackTimeMillis.toLong())
         Glide.with(itemView)
             .load(element.artworkUrl100)
             .centerCrop()
