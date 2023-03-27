@@ -74,6 +74,8 @@ class SearchActivity : AppCompatActivity() {
             val inputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as? InputMethodManager
             val view: View? = this.currentFocus
             inputMethodManager?.hideSoftInputFromWindow(view?.windowToken, 0)
+            tracks.clear()
+            trackAdapter.notifyDataSetChanged()
         }
 
         refreshButton.setOnClickListener {
@@ -115,6 +117,7 @@ class SearchActivity : AppCompatActivity() {
                 ) {
                     if (response.code() == 200) {
                         tracks.clear()
+                        refreshButton.visibility = View.GONE
                         if (response.body()?.results?.isNotEmpty() == true) {
                             tracks.addAll(response.body()?.results!!)
                             trackAdapter.notifyDataSetChanged()
@@ -137,6 +140,7 @@ class SearchActivity : AppCompatActivity() {
                 override fun onFailure(call: Call<TracksResponse>, t: Throwable) {
                     showMessage(getString(R.string.something_went_wrong), t.message.toString())
                     placeholderImage.setImageResource(R.drawable.something_went_wrong)
+                    refreshButton.visibility = View.VISIBLE
                 }
 
             })
@@ -171,12 +175,10 @@ class SearchActivity : AppCompatActivity() {
             if (additionalMessage.isNotEmpty()) {
                 Toast.makeText(applicationContext, additionalMessage, Toast.LENGTH_LONG)
                     .show()
-                refreshButton.visibility = View.VISIBLE
             }
         } else {
             placeholderMessage.visibility = View.GONE
             placeholderImage.visibility = View.GONE
-            refreshButton.visibility = View.GONE
         }
     }
 
