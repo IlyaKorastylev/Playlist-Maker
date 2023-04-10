@@ -9,11 +9,7 @@ import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import retrofit2.Call
@@ -47,6 +43,11 @@ class SearchActivity : AppCompatActivity() {
     private lateinit var refreshButton : Button
     private val trackAdapter = TrackAdapter()
     private val tracks = ArrayList<Track>()
+    private val historyAdapter = TrackAdapter()
+    private lateinit var searchHistoryLayout: LinearLayout
+    private lateinit var searchHistoryRV: RecyclerView
+    private lateinit var searchHistoryClearButton: Button
+    private lateinit var history: SearchHistory
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -60,10 +61,21 @@ class SearchActivity : AppCompatActivity() {
         placeholderMessage = findViewById(R.id.placeholderMessage)
         placeholderImage = findViewById(R.id.placeholderImage)
         refreshButton = findViewById(R.id.refreshButton)
+        searchHistoryLayout = findViewById(R.id.searchHistoryLayout)
+        searchHistoryRV = findViewById(R.id.TracksHistoryRV)
+        searchHistoryClearButton = findViewById(R.id.search_clear_history_button)
+
+        searchHistoryRV.layoutManager = LinearLayoutManager(this)
+
+        history = SearchHistory(getSharedPreferences(APP_PREFERENCES, MODE_PRIVATE))
+
+        searchHistoryLayout.visibility = if (history.trackList.size > 0) View.VISIBLE else View.GONE
 
         trackAdapter.tracks = tracks
+        historyAdapter.tracks = history.trackList
 
         recyclerView.adapter = trackAdapter
+        searchHistoryRV.adapter = historyAdapter
 
         searchBackButton.setOnClickListener {
             finish()
@@ -82,12 +94,25 @@ class SearchActivity : AppCompatActivity() {
             findTracks()
         }
 
+        searchHistoryClearButton.setOnClickListener{
+            history.clear()
+            historyAdapter.notifyDataSetChanged()
+            searchHistoryLayout.visibility = if (history.trackList.size > 0) View.VISIBLE else View.GONE
+
+        }
+
+        trackAdapter.onItemClick = { track ->
+            history.add(track)
+            historyAdapter.notifyDataSetChanged()
+        }
+
         var searchTextWatcher = object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 clearButton.visibility = clearButtonVisibility(s)
+                searchHistoryLayout.visibility = if (queryInput.hasFocus() && s?.isEmpty() == true) View.VISIBLE else View.GONE
             }
 
             override fun afterTextChanged(s: Editable?) {
@@ -162,6 +187,7 @@ class SearchActivity : AppCompatActivity() {
     override fun onRestoreInstanceState(savedInstanceState: Bundle) {
         super.onRestoreInstanceState(savedInstanceState)
         savedSearchText = savedInstanceState.getString(SEARCH_LINE, "")
+        searchHistoryLayout.visibility = if (history.trackList.size > 0) View.VISIBLE else View.GONE
     }
 
 

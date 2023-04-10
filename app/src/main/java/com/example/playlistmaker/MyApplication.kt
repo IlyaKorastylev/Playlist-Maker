@@ -1,20 +1,31 @@
 package com.example.playlistmaker
 
 import android.app.Application
-import android.content.res.Configuration
-import android.os.Bundle
+import androidx.appcompat.app.AppCompatDelegate
+
+const val APP_PREFERENCES = "app_preferences"
+const val DARK_THEME_KEY = "key_for_dark_theme"
 
 class MyApplication : Application() {
+
+    var darkTheme = false
+
     override fun onCreate() {
         super.onCreate()
+        val sharedPrefs = getSharedPreferences(APP_PREFERENCES, MODE_PRIVATE)
+        darkTheme = sharedPrefs.getBoolean(DARK_THEME_KEY, false)
+
+        switchTheme(darkTheme)
     }
 
-    override fun onConfigurationChanged ( newConfig : Configuration) {
-        super.onConfigurationChanged(newConfig)
+    fun switchTheme(darkThemeEnabled: Boolean) {
+        darkTheme = darkThemeEnabled
+        AppCompatDelegate.setDefaultNightMode(
+            if (darkThemeEnabled) {
+                AppCompatDelegate.MODE_NIGHT_YES
+            } else {
+                AppCompatDelegate.MODE_NIGHT_NO
+            }
+        )
     }
-
-    override fun onLowMemory() {
-        super.onLowMemory()
-    }
-
 }

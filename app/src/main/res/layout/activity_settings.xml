@@ -36,6 +36,7 @@
 
     <Switch
         style="@style/SettingsButtons"
+        android:id="@+id/themeSwitcher"
         android:layout_marginTop="40dp"
         android:text="@string/dark_theme"
         android:paddingEnd="5dp"
