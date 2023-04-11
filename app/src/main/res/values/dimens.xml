@@ -13,4 +13,6 @@
     <dimen name="search_margin_horizontal">16dp</dimen>
     <dimen name="rounded_edittext_radius">8dp</dimen>
     <dimen name="artwork_dimens">45dp</dimen>
+    <dimen name="corner_radius_search_act_buttons">54dp</dimen>
+    <dimen name="text_size_search_act_buttons">14sp</dimen>
 </resources>

@@ -23,7 +23,7 @@ class SearchHistory(val sharedPrefs : SharedPreferences) {
         sharedPrefs.edit()
             .putString(SEARCH_HISTORY_KEY, json)
             .apply()
-        }
+    }
 
     fun clear(){
         trackList.clear()

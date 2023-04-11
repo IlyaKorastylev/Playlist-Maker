@@ -97,7 +97,7 @@ class SearchActivity : AppCompatActivity() {
         searchHistoryClearButton.setOnClickListener{
             history.clear()
             historyAdapter.notifyDataSetChanged()
-            searchHistoryLayout.visibility = if (history.trackList.size > 0) View.VISIBLE else View.GONE
+            searchHistoryLayout.visibility = if (history.trackList.isNotEmpty()) View.VISIBLE else View.GONE
 
         }
 
@@ -112,7 +112,7 @@ class SearchActivity : AppCompatActivity() {
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 clearButton.visibility = clearButtonVisibility(s)
-                searchHistoryLayout.visibility = if (queryInput.hasFocus() && s?.isEmpty() == true) View.VISIBLE else View.GONE
+                searchHistoryLayout.visibility = if (queryInput.hasFocus() && s?.isEmpty() == true && history.trackList.isNotEmpty()) View.VISIBLE else View.GONE
             }
 
             override fun afterTextChanged(s: Editable?) {
