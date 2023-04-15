@@ -5,17 +5,22 @@ import androidx.recyclerview.widget.RecyclerView
 
 class TrackAdapter : RecyclerView.Adapter<TrackViewHolder>() {
 
-        var tracks = ArrayList<Track>()
+    internal var tracks = mutableListOf<Track>()
+    var onItemClick: ((Track) -> Unit)? = null
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrackViewHolder {
-            return TrackViewHolder(parent)
-        }
 
-        override fun onBindViewHolder(holder: TrackViewHolder, position: Int) {
-            holder.bind(tracks[position])
-        }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TrackViewHolder {
+        return TrackViewHolder(parent)
+    }
 
-        override fun getItemCount(): Int {
-            return tracks.size
+    override fun onBindViewHolder(holder: TrackViewHolder, position: Int) {
+        holder.bind(tracks[position])
+        holder.itemView.setOnClickListener {
+            onItemClick?.invoke(tracks[position])
         }
+    }
+
+    override fun getItemCount(): Int {
+        return tracks.size
+    }
 }

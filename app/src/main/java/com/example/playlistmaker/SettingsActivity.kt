@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
+import android.widget.Switch
 
 class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,6 +17,16 @@ class SettingsActivity : AppCompatActivity() {
 
         settingsBackButton.setOnClickListener {
             finish()
+        }
+
+        val themeSwitcher = findViewById<Switch>(R.id.themeSwitcher)
+
+        themeSwitcher.setOnCheckedChangeListener { switcher, checked ->
+            (applicationContext as MyApplication).switchTheme(checked)
+            val sharedPrefs = getSharedPreferences(APP_PREFERENCES, MODE_PRIVATE)
+            sharedPrefs.edit()
+                .putBoolean(DARK_THEME_KEY, checked)
+                .apply()
         }
 
         val shareButton = findViewById<Button>(R.id.share_button)
