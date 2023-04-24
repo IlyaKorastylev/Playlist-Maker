@@ -27,7 +27,7 @@ class SearchActivity : AppCompatActivity() {
 
     var savedSearchText : String? = null
 
-    private val iTunesBaseUrl = "https://itunes.apple.com"
+    private val iTunesBaseUrl = "http://itunes.apple.com"
 
     private val retrofit = Retrofit.Builder()
         .baseUrl(iTunesBaseUrl)

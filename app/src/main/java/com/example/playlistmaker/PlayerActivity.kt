@@ -32,7 +32,9 @@ class PlayerActivity : AppCompatActivity() {
         playerBackButton = findViewById(R.id.playerBack)
         albumCover = findViewById(R.id.albumCover)
         trackName = findViewById(R.id.trackName)
+        trackName.setSelected(true)
         artistName = findViewById(R.id.artistName)
+        artistName.setSelected(true)
         trackDuration = findViewById(R.id.durationTime)
         trackAlbum = findViewById(R.id.albumName)
         trackYear = findViewById(R.id.releaseDate)
@@ -53,7 +55,7 @@ class PlayerActivity : AppCompatActivity() {
     private fun viewFinder() {
         Glide.with(applicationContext)
                 .load(currentTrack.getCoverArtwork())
-                .transform(RoundedCorners(8))
+                .transform(RoundedCorners(resources.getDimensionPixelSize(R.dimen.artwork_rounded_corners)))
                 .placeholder(R.drawable.album_cover_placeholder)
                 .into(albumCover)
 
