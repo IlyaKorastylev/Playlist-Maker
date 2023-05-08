@@ -14,7 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PlaylistMaker"
         android:name="com.example.playlistmaker.MyApplication"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".PlayerActivity"
+            android:exported="false">
+        </activity>
         <activity
             android:name=".SearchActivity"
             android:exported="false">

@@ -15,4 +15,12 @@
     <dimen name="artwork_dimens">45dp</dimen>
     <dimen name="corner_radius_search_act_buttons">54dp</dimen>
     <dimen name="text_size_search_act_buttons">14sp</dimen>
+    <dimen name="guideline_end_start_24">24dp</dimen>
+    <dimen name="guideline_end_start_16">16dp</dimen>
+    <dimen name="margin_54">54dp</dimen>
+    <dimen name="fab_custom_size_51">51dp</dimen>
+    <dimen name="track_info_text_size">13sp</dimen>
+    <dimen name="track_attr_margin_top">13sp</dimen>
+    <dimen name="track_attr_margin_bottom">28dp</dimen>
+    <dimen name="artwork_rounded_corners">8dp</dimen>
 </resources>
